@@ -332,7 +332,9 @@ function useFileUpload() {
 			notificationsStore.remove(dragNotificationID);
 		}
 
-		const files = Array.from(event.dataTransfer.files).filter((file) => file.type);
+		// Browsers report no MIME type for many valid files (e.g. CAD or custom extensions). Only skip the
+		// typeless entries that are empty, which is how dropped folders show up.
+		const files = Array.from(event.dataTransfer.files).filter((file) => file.type || file.size > 0);
 
 		fileUploadNotificationID = notificationsStore.add({
 			title: t(

@@ -25,7 +25,8 @@ const userStore = useUserStore();
 
 const repeaterValue = computed({
 	get() {
-		return props.value?.fields?.map((field: Field) => field.meta);
+		// The sub-field name lives on the entry itself (`field.field`), not necessarily in its `meta`.
+		return props.value?.fields?.map((field: Field) => ({ ...field.meta, field: field.field ?? field.meta?.field }));
 	},
 	set(newVal: FieldMeta[] | null) {
 		const fields = (newVal || []).map((meta: Record<string, any>) => ({

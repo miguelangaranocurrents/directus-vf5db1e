@@ -67,7 +67,7 @@ const availableCollections = computed(() => {
 			</div>
 		</template>
 
-		<div v-if="localType === 'm2m'" class="field full">
+		<div v-if="localType === 'm2m' || localType === 'files'" class="field full">
 			<div class="label type-label">
 				{{ $t('related_collection') }}
 				<VIcon v-tooltip="$t('required')" class="required-mark" sup name="star" filled />

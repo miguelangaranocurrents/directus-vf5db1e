@@ -361,6 +361,13 @@ async function onClick(event: MouseEvent) {
 	justify-content: flex-end;
 }
 
+.button.active,
+.split-menu-button.active {
+	color: var(--v-button-color-active, var(--v-button-color, var(--foreground-inverted)));
+	background-color: var(--v-button-background-color-active, var(--v-button-background-color, var(--theme--primary)));
+	border-color: var(--v-button-background-color-active, var(--v-button-background-color, var(--theme--primary)));
+}
+
 .button:disabled,
 .split-menu-button:disabled {
 	color: var(--v-button-color-disabled, var(--theme--foreground-subdued));

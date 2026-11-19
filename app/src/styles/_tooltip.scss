@@ -1,3 +1,11 @@
+/*
+ * The tooltip is force-mounted, so its popper wrapper stays in the DOM at the last position it was shown.
+ * Without this, the hidden wrapper intercepts clicks on whatever element sits underneath it.
+ */
+[data-reka-popper-content-wrapper]:has(> .tooltip) {
+	pointer-events: none;
+}
+
 .tooltip {
 	--tooltip-foreground-color: var(--foreground-inverted);
 	--tooltip-background-color: var(--background-inverted);
